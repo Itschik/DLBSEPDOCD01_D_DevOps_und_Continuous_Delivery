@@ -52,7 +52,7 @@ pipeline {
             }
         }
 
-            post {
+    post {
         success {
             echo 'Pipeline erfolgreich abgeschlossen!'
         }
