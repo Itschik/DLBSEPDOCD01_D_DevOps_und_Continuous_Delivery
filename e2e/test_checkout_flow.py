@@ -23,7 +23,8 @@ class CheckoutFlowE2ETest(StaticLiveServerTestCase):
         self.product = Product.objects.create(
             name="Laptop",
             price=999.99,
-            description="High-End Laptop"
+            description="High-End Laptop",
+            stock=5
         )
 
     def debug_print(self, step):
