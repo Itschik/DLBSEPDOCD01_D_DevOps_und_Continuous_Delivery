@@ -1,0 +1,20 @@
+<!doctype html>
+<html><body>
+  <h1>Dein Warenkorb</h1>
+  <ul>
+    {% for item in items %}
+      <li>
+        {{ item.product.name }} – {{ item.quantity }} × {{ item.product.price }} € 
+        = {{ item.product.price|floatformat:2 }} €
+        <a href="{% url 'remove_from_cart' item.product.id %}">Entfernen</a>
+      </li>
+    {% empty %}
+      <li>Warenkorb ist leer.</li>
+    {% endfor %}
+  </ul>
+  <p><strong>Gesamt:</strong> {{ total }} €</p>
+  <p>
+    <a href="{% url 'home' %}">Weiter einkaufen</a> |
+    <a href="{% url 'checkout' %}"><button>Zur Kasse</button></a>
+  </p>
+</body></html>
