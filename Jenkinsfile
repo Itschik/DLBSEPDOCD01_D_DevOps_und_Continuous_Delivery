@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Erstelle virtuelle Umgebung und installiere Abhängigkeiten...'
                 bat """
-                    py -m venv %VENV_DIR%
+                    bat "${tool 'Python3.13'}\\python.exe -m venv %VENV_DIR%"
                     %VENV_DIR%\\Scripts\\pip install --upgrade pip
                     %VENV_DIR%\\Scripts\\pip install -r requirements.txt
                 """
