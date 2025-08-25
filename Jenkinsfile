@@ -1,6 +1,15 @@
 pipeline {
     agent any
-    stages {
+        stages {
+            stage('Checkout') {
+            steps {
+                // Repository aus GitHub klonen
+                git branch: 'main', url: 'https://github.com/Itschik/DLBSEPDOCD01_D_DevOps_und_Continuous_Delivery.git'
+            }
+        }
+
+          
+        
         stage('Build') {
             steps {
                 //
