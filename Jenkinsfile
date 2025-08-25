@@ -25,10 +25,12 @@ pipeline {
         }
 
 
-        stage('Run Python Script') {
+        stage('Run Tests') {
             steps {
-                echo 'Starte meine Python-Datei...'
-                bat "%VENV_DIR%\\Scripts\\python cart\\tests\\test_models.py"
+                echo 'Starte Django-Tests...'
+                bat """
+                    %VENV_DIR%\\Scripts\\python manage.py test
+                """
             }
         }
 
