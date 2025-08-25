@@ -10,7 +10,7 @@ class CatalogIntegrationTest(TestCase):
 
     def test_product_catalog_and_cart(self):
         # Schritt 1: Produkt im Katalog anzeigen
-        response = self.client.get(reverse("home"))
+        response = self.client.get(reverse("catalog_index"))
         self.assertContains(response, "Testprodukt")
 
         # Schritt 2: Login
