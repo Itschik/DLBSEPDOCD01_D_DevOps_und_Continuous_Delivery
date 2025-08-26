@@ -17,9 +17,9 @@ class CatalogIntegrationTest(TestCase):
         self.client.login(username="testuser", password="12345")
 
         # Schritt 3: Produkt in Warenkorb legen
-        response = self.client.post(reverse("cart:add_to_cart", args=[self.product.id]))
+        response = self.client.post(reverse("add_to_cart", args=[self.product.id]))
         self.assertEqual(response.status_code, 302)  # Redirect nach Cart
 
         # Schritt 4: Warenkorb prüfen
-        response = self.client.get(reverse("cart:view_cart"))
+        response = self.client.get(reverse("view_cart"))
         self.assertContains(response, "Testprodukt")
