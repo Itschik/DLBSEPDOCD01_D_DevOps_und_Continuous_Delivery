@@ -21,5 +21,5 @@ class CatalogIntegrationTest(TestCase):
         self.assertEqual(response.status_code, 302)  # Redirect nach Cart
 
         # Schritt 4: Warenkorb prüfen
-        response = self.client.get(reverse("view_cart"))
+        response = self.client.get(reverse("cart_view")) # view_cart war es zuvor, das ist glaub falsch.
         self.assertContains(response, "Testprodukt")
