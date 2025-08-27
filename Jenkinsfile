@@ -47,7 +47,7 @@ pipeline {
             steps {
                 echo 'Starte End to End-Tests...'
                 bat """
-                    %VENV_DIR%\\Scripts\\python manage.py test e2e.e2e_shop   e2e.test_checkout_flow
+                    %VENV_DIR%\\Scripts\\python manage.py test  e2e.test_checkout_flow
                 """
             }
         }
