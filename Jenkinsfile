@@ -25,11 +25,29 @@ pipeline {
         }
 
 
-        stage('Run Tests') {
+        stage('Run Unit Tests') {
             steps {
-                echo 'Starte Django-Tests...'
+                echo 'Starte Django Unit-Tests...'
                 bat """
-                    %VENV_DIR%\\Scripts\\python manage.py test
+                    %VENV_DIR%\\Scripts\\python manage.py test cart.tests.test_models  cart.tests.test_flow  catalog.tests.test_models
+                """
+            }
+        }
+
+        stage('Run Integration Tests') {
+            steps {
+                echo 'Starte Django Integration-Tests...'
+                bat """
+                    %VENV_DIR%\\Scripts\\python manage.py test catalog.tests.test_integration
+                """
+            }
+        }
+
+        stage('Run End 2 End Tests') {
+            steps {
+                echo 'Starte End to End-Tests...'
+                bat """
+                    %VENV_DIR%\\Scripts\\python manage.py test e2e.e2e_shop   e2e.test_checkout_flow
                 """
             }
         }
